@@ -1,3 +1,5 @@
+package 不定长滑窗;
+
 public class a209 {
     public int minSubArrayLen(int target, int[] nums) {
         int l=0,r=0,minLen=Integer.MAX_VALUE;
