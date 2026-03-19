@@ -1,5 +1,6 @@
+package 不定长滑窗;
+
 import java.util.Arrays;
-import java.util.Map;
 
 public class a1838 {
     public int maxFrequency(int[] nums, int k) {

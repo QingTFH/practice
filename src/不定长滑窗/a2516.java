@@ -1,3 +1,5 @@
+package 不定长滑窗;
+
 public class a2516 {
     public int takeCharacters(String s, int k) {
         int[] sum = new int[3]; //数组中总个数，相当于一开始就取走所有字母

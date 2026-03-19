@@ -1,3 +1,5 @@
+package 不定长滑窗;
+
 public class a1658 {
     public int minOperations(int[] nums, int x) {
         int n = nums.length;
