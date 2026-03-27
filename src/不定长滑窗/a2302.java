@@ -1,3 +1,5 @@
+package 不定长滑窗;
+
 public class a2302 {
     public long countSubarrays(int[] nums, long k) {
         int l=0,r=0,n=nums.length;

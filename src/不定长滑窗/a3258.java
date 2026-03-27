@@ -1,3 +1,5 @@
+package 不定长滑窗;
+
 public class a3258 {
     public int countKConstraintSubstrings(String s, int k) {
         int[] cnt = new int[2];

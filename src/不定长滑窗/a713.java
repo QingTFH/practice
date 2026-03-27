@@ -1,3 +1,5 @@
+package 不定长滑窗;
+
 public class a713 {
     public int numSubarrayProductLessThanK(int[] nums, int k) {
         int l=0,r=0,n=nums.length,sum=0;
