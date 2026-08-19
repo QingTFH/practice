@@ -1,0 +1,68 @@
+一种可以快速判断是否属于同一集合的数据结构, 类比"等价关系"
+
+成员:
+1. fa[]: 对于集合中元素n, 假设他的索引是i, fa[i] <-> n所在集合的代表元素的索引 <-> n的最高父亲(根节点)的索引
+        如果fa[i] = i, 那么i就是该集合中的根的索引
+2. size[]: 如果i是根节点的索引, size[i] = 该节点所代表的集合的大小; 否则忽略
+3. cc: 集合数量, 发生合并时-1
+
+方法：
+1. 初始化init: 每一个节点的父亲都是它自己, fa[i] = i, size[i] = 1, cc = n;
+2. 合并merge: 将需要合并的两颗树的根挂到另一颗树的根上
+            -> find(i) = x, find(j) = y (通过查找方法, 找到两棵树的根节点x, y) (x != y)
+            -> fa[x] = y (把x 挂到 y上), size[y] += size[x]
+                -> 优先将小数挂到大树上, 让大树成为父亲, 保持尽可能平衡
+
+3. 查找find: 查找i的根节点 -> while(f[i] != i) i = f[i]
+            优化点: 路径压缩 -> 当查找到根节点后, 将沿途的f[i]都改成root -> 递归函数{find(x) -> find(fa[x])}
+            if (fa[x] != x) {
+                fa[x] = find(fa[x]);   // 路径压缩：把 x 的父节点直接改成根
+            }
+            return fa[x];
+
+class UnionFind {
+        final int[] parent;
+        final int[] size;
+        int cc;
+
+        UnionFind(int n) {
+            parent = new int[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i; // 初始时, 所有节点都是根节点, 因此它的父亲是它自己
+            }
+
+            size = new int[n];
+            Arrays.fill(size, 1); // 初始时, 所有集合大小都是1
+
+            cc = n; // 初始时有n个集合
+        }
+
+        public boolean merge(int from, int to) { // 把from和to所在的两个集合合并
+            int x = find(from);
+            int y = find(to);
+            if (x == y) {
+                return false;
+            }
+
+            // 保证x是小树
+            if (size[x] > size[y]) {
+                int tmp = x;
+                x = y;
+                y = tmp;
+            }
+
+            // 把x挂到y上
+            size[y] += size[x];
+            parent[x] = y;
+            cc --;
+            return true;
+        }
+
+        public int find(int node) { // 找到node的根节点
+            if (parent[node] != node) {
+                parent[node] = find(parent[node]); // 压缩路径, 递归找到root并更改沿途的路径
+            }
+            return parent[node];
+        }
+
+    }

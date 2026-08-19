@@ -1,0 +1,16 @@
+快慢指针：由于每次遍历链表需要从头开始, 而不能像数组一样直接取中间(length / 2)的值,
+    所以当我们通过一次遍历获得了链表长度时, 仍然需要重新遍历一次来获得中间值;
+    于是我们可以使用双指针, 其中第二个指针的速度是第一个指针的两倍, 这样当第二个指针遍历结束后, 第一个指针也就到达了中间点
+    使用场景：判定链表成环, 快速定位倒数k个节点(本质前后指针)/中点, 查重
+
+前后指针同理, 保证了两个指针的距离相差n,
+
+
+题目基本使用如下类：
+public class ListNode {
+         int val;
+         ListNode next;
+         ListNode() {}
+         ListNode(int val) { this.val = val; }
+         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+     }
