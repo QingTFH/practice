@@ -41,11 +41,11 @@ public class a402 {
         }
 
         // 去除前导0
-        while(!sb.isEmpty() && sb.charAt(0) == '0') {
+        while(!(sb.length() == 0) && sb.charAt(0) == '0') {
             sb.deleteCharAt(0);
         }
 
-        return sb.isEmpty() ? "0" : sb.toString();
+        return sb.length() == 0 ? "0" : sb.toString();
     }
 
 }

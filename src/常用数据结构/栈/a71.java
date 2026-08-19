@@ -25,7 +25,7 @@ public class a71 {
             sb.append(it.next());
         }
 
-        return sb.isEmpty() ? "/" : sb.toString();
+        return sb.length() == 0 ? "/" : sb.toString();
     }
 
     class Parser {

@@ -1,7 +1,5 @@
 package 常用数据结构.并查集;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Union;
-
 import java.util.Arrays;
 
 public class a3551 {
