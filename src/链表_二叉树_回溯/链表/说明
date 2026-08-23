@@ -14,3 +14,6 @@ public class ListNode {
          ListNode(int val) { this.val = val; }
          ListNode(int val, ListNode next) { this.val = val; this.next = next; }
      }
+
+
+跳过了1.9 1.10 1.11
