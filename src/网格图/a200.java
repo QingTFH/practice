@@ -1,4 +1,4 @@
-package 网格图搜索;
+package 网格图;
 
 public class a200 {
 
