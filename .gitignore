@@ -30,10 +30,6 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-### 白名单：仅允许以下条目提交 ###
-/*
-!/src/
-!/未完成题目.md
-!/刷题记录.md
-!/README.md
-!.gitignore
+### 仓库本地私有文件 ###
+.agents/
+建议.md
